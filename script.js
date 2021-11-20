@@ -8,32 +8,18 @@ const displayArrayWithSpace = (arr) => {
 }
 
 const outputHTML = (obj) => {
-    if (obj.active === true) {
-        return `
+    return `
         <div class="astronaut">
             <div class="bio">
                 <h3>${obj.firstName} ${obj.lastName}</h3>
                 <ul>
                     <li>Hours in space: ${obj.hoursInSpace}</li>
-                    <li style = "color: green;">Active: ${obj.active}</li>
+                    <li class = "activity">Active: ${obj.active}</li>
                     <li>Skills: ${displayArrayWithSpace(obj.skills)}</li>
                 </ul>
             </div>
             <img class="avatar" src="${obj.picture}">
         </div>`
-    }
-    return `
-    <div class="astronaut">
-        <div class="bio">
-            <h3>${obj.firstName} ${obj.lastName}</h3>
-            <ul>
-                <li>Hours in space: ${obj.hoursInSpace}</li>
-                <li>Active: ${obj.active}</li>
-                <li>Skills: ${displayArrayWithSpace(obj.skills)}</li>
-            </ul>
-        </div>
-        <img class="avatar" src="${obj.picture}">
-    </div>`
 }
 
 const init = () => {
@@ -52,6 +38,12 @@ const init = () => {
                     if (hours === astronaut.hoursInSpace) {
                         allCrewDisplay.innerHTML += outputHTML(astronaut)
                     }
+                }
+            }
+            const allActivity = document.getElementsByClassName("activity");
+            for (i = 0; i < allActivity.length; i++) {
+                if (allActivity[i].innerHTML === "Active: true") {
+                    allActivity[i].style.color = "green";
                 }
             }
             const countOfAstronauts = document.getElementById("count");
