@@ -19,7 +19,7 @@ const outputHTML = (obj) => {
                 </ul>
             </div>
             <img class="avatar" src="${obj.picture}">
-        </div>`
+        </div>`;
 }
 
 const init = () => {
@@ -36,7 +36,7 @@ const init = () => {
             for (let hours of allHoursInSpaceSorted) {
                 for (let astronaut of json) {
                     if (hours === astronaut.hoursInSpace) {
-                        allCrewDisplay.innerHTML += outputHTML(astronaut)
+                        allCrewDisplay.innerHTML += outputHTML(astronaut);
                     }
                 }
             }
@@ -47,7 +47,7 @@ const init = () => {
                 }
             }
             const countOfAstronauts = document.getElementById("count");
-            countOfAstronauts.innerHTML = `Total Count of Astronauts: ${json.length}`
+            countOfAstronauts.innerHTML = `Total Count of Astronauts: ${json.length}`;
         })
     })
 }
